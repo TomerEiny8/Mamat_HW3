@@ -4,7 +4,7 @@
 struct stack {
 	elem_t* data;
 	size_t top;
-	size_t maxsize;
+	size_t max_size;
 	clone_t clone;
 	destroy_t destroy;
 	print_t print;
