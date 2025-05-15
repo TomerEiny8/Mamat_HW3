@@ -30,5 +30,5 @@ void student_print(void* e) {
 	if(!e)
 		return;
 	student* Student = (student*)e;
-	printf("student name: %s, age: %d, id: %d", Student->name, Student->age, Student->id);
+	printf("student name: %s, age: %d, id: %d\n", Student->name, Student->age, Student->id);
 }
