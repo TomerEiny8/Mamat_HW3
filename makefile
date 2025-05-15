@@ -12,7 +12,7 @@ stack.o: stack.c stack.h
 	$(CC) $(CFLAGS) -c stack.c
 
 student.o: student.c student.h
-        $(CC) $(CFLAGS) -c student.c
+	$(CC) $(CFLAGS) -c student.c
 
 main.o: main.c stack.h student.h
 	$(CC) $(CFLAGS) -c main.c
