@@ -1,5 +1,5 @@
 #include "stack.h"
-#include <stdlib>
+#include <stdlib.h>
 
 struct stack {
 	elem_t* data;
@@ -14,7 +14,7 @@ Stack stack_create(size_t max_size, clone_t clone, destroy_t destroy print_t pri
 	Stack s = malloc(sizeof(*s));
 	if(!s)
 		return NULL;
-	s->data = malloc(sizeof(elem_n) * max_size);
+	s->data = malloc(sizeof(elem_t) * max_size);
 	if(!s->data) {
 	        free(s);
         	return NULL;
@@ -43,14 +43,14 @@ bool stack_push(Stack s, elem_t elem) {
 	elem_t copy = s->clone(elem);
 	if(!copy) 
 		return 1;
-	s->data[s->top] = copy;
+	s->data[s->top++] = copy;
 	return 0;
 }
 
 void stack_pop(Stack s) {
 	if(!s || s->top == 0)
 		return;
-	return s->data[--s->top];
+	s->destroy(s->data[--s->top]);
 }
 
 elem_t stack_peek(Stack s) {
@@ -74,8 +74,8 @@ size_t stack_capacity(Stack s) {
 void stack_print(Stack s) {
 	if(!s)
 		return;
-	for(size_t i = s->top; i >= 0; --i) {
-		s->print(s->data[i]);
+	for (size_t i = s->top; i > 0; --i)
+    		s->print(s->data[i - 1]);
 	}
 }
 
