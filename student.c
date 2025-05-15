@@ -11,8 +11,10 @@ void* student_clone(void* e) {
 	if(!clone)
 		return NULL;
 	clone->name = strdup(src->name);
-	if(!clone->name)
+	if(!clone->name) {
+		free(clone);
 		return NULL;
+	}
 	clone->age = src->age;
 	clone->id = src->id;
 	return clone;
