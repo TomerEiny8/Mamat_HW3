@@ -1,4 +1,4 @@
-CC=gxcc
+CC=gcc
 CFLAGS=-g -Wall -std=c99
 CCLINK=gcc
 OBJS=main.o stack.o student.o
