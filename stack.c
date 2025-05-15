@@ -74,7 +74,7 @@ size_t stack_capacity(Stack s) {
 void stack_print(Stack s) {
 	if(!s)
 		return;
-	for (size_t i = s->top; i > 0; --i)
+	for (size_t i = s->top; i > 0; --i) {
     		s->print(s->data[i - 1]);
 	}
 }
