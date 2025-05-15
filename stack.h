@@ -6,12 +6,14 @@
 
 typedef void* elem_t;
 
+// the pointer to the function
 typedef elem_t (*clone_t)(elem_t e);
 typedef void (*destroy_t)(elem_t e);
 typedef void (*print_t)(elem_t e);
 
 typedef struct stack* Stack;
 
+// function declarations
 Stack stack_create(size_t max_size, clone_t clone, destroy_t destroy, print_t print);
 int stack_destroy(Stack s);
 int stack_push(Stack s, elem_t e);
