@@ -6,13 +6,13 @@
 
 typedef void* elem_t;
 
-typedef elem_t (*clone_y)(elem_t e);
+typedef elem_t (*clone_t)(elem_t e);
 typedef void (*destroy_t)(elem_t e);
 typedef void (*print_t)(elem_t e);
 
 typedef struct stack* Stack;
 
-Stack stackcreate(int max_size, clone_t clone, destroy_t destroy, print_t print);
+Stack stack_create(int max_size, clone_t clone, destroy_t destroy, print_t print);
 int stack_destroy(Stack s);
 int stack_push(Stack s, elem_t e);
 void stack_pop(Stack s);
