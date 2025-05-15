@@ -3,6 +3,11 @@
 #include <string.h>
 #include <stdio.h>
 
+/**
+ * @brief Cloning a student
+ * @param e pointer to a student
+ * @return a pointer to the student clone
+ */
 void* student_clone(void* e) {
 	if(!e)
         return NULL;
@@ -23,6 +28,11 @@ void* student_clone(void* e) {
     return clone;
 }
 
+/**
+ * @brief destoying a student
+ * @param e pointer to a student
+ * @return nothing
+ */
 void student_destroy(void* e) {
 	if(!e)
 		return;
@@ -31,6 +41,11 @@ void student_destroy(void* e) {
 	free(Student);
 }
 
+/**
+ * @brief printing the student information according to format
+ * @param e pointer to a student
+ * @return nothing
+ */
 void student_print(void* e) {
 	if(!e)
 		return;
