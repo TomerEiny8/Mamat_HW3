@@ -27,23 +27,24 @@ Stack stack_create(size_t max_size, clone_t clone, destroy_t destroy print_t pri
 	return s;
 }
 
-void stack_destroy(Stack s) {
-	if(!s) return;
+int stack_destroy(Stack s) {
+	if(!s) return 1;
 	for(size_t i = 0; i < s->top; ++i) {
 		s->destroy(s->data[i]);
 	}
 	free(s->data);
 	free(s);
+	return 0;
 }
 
 bool stack_push(Stack s, elem_t elem) {
 	if(!s || s->top == s->max_size) 
-		return false;
+		return 1;
 	elem_t copy = s->clone(elem);
 	if(!copy) 
-		return false;
+		return 1;
 	s->data[s->top] = copy;
-	return true;
+	return 0;
 }
 
 void stack_pop(Stack s) {

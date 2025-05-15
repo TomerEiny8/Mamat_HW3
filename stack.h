@@ -12,9 +12,9 @@ typedef void (*print_t)(elem_t e);
 
 typedef struct stack* Stack;
 
-Stack stackcreate(size_t max_size, clone_t clone, destroy_t destroy, print_t print);
-void stack_destroy(Stack s);
-bool stack_push(Stack s, elem_t e);
+Stack stackcreate(int max_size, clone_t clone, destroy_t destroy, print_t print);
+int stack_destroy(Stack s);
+int stack_push(Stack s, elem_t e);
 void stack_pop(Stack s);
 elem_t stack_peek(Stack s);
 size_t stack_size(Stack s);
