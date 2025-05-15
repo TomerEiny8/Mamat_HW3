@@ -10,7 +10,7 @@ struct stack {
 	print_t print;
 };
 
-Stack stack_create(size_t max_size, clone_t clone, destroy_t destroy print_t print){
+Stack stack_create(size_t max_size, clone_t clone, destroy_t destroy ,print_t print){
 	Stack s = malloc(sizeof(*s));
 	if(!s)
 		return NULL;
@@ -37,7 +37,7 @@ int stack_destroy(Stack s) {
 	return 0;
 }
 
-bool stack_push(Stack s, elem_t elem) {
+int stack_push(Stack s, elem_t elem) {
 	if(!s || s->top == s->max_size) 
 		return 1;
 	elem_t copy = s->clone(elem);
