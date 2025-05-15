@@ -12,6 +12,6 @@ typedef struct student {
 
 void* student_clone(void* e);
 void student_destroy(void* e);
-void student-print(void* e);
+void student_print(void* e);
 
 #endif
