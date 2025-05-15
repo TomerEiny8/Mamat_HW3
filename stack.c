@@ -38,7 +38,7 @@ int stack_destroy(Stack s) {
 }
 
 int stack_push(Stack s, elem_t elem) {
-	if(!s || s->top == s->max_size) 
+	if(!s || !elem || s->top == s->max_size) 
 		return 1;
 	elem_t copy = s->clone(elem);
 	if(!copy) 
